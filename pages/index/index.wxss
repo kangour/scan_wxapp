@@ -1,0 +1,11 @@
+/* pages/index.wxss */
+.button_container{
+  width: 80%;
+}
+.button {
+  background-color: rgb(30, 196, 168);
+  color: aliceblue;
+  border-radius: 10rpx;
+  margin: 0 auto 100rpx auto;
+  height: 180rpx; 
+}

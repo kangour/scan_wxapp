@@ -1,0 +1,11 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='message_container' bindtap='copy'>
+    <text class="message">{{message}}</text>
+    <image src='{{image_path}}'></image>
+  </view>
+  <view class='button_container'>
+    <button type='primary' bindtap='down'>下载缓存</button>
+    <button type='primary' bindtap='read'>本地读取</button>
+  </view>
+</view>

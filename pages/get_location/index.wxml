@@ -1,0 +1,14 @@
+<!--pages/x/x.wxml-->
+<map id="map" longitude="{{longitude}}" latitude="{{latitude}}" style="width: 100%; height: 800rpx;" show-location>
+</map>
+<view bindtap='copy'>
+  <view>
+    <text>经度：{{longitude}}</text>
+  </view>
+  <view>
+    <text>纬度：{{latitude}}</text>
+  </view>
+</view>
+<view class='button_container'>
+  <button class="button" type='primary' bindtap='getLocation'>更新坐标</button>
+</view>

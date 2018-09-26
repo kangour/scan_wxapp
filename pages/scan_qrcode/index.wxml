@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='message_container' bindtap='copy'>
+    <text class="message">{{message}}</text>
+  </view>
+  <view class='button_container'>
+    <button class="button" type='primary' bindtap='scan'> 扫码识别 </button>
+  </view>
+</view>
