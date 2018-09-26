@@ -36,18 +36,19 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 0,
 			"list": [
 				{
-					"id": -1,
-					"name": "1",
-					"pathName": "pages/share/postcard",
+					"id": 0,
+					"name": "map",
+					"pathName": "pages/map/index",
 					"query": ""
 				},
 				{
 					"id": -1,
 					"name": "x",
-					"pathName": "pages/x/x"
+					"pathName": "pages/x/x",
+					"query": ""
 				}
 			]
 		}

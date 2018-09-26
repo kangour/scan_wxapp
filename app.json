@@ -3,7 +3,7 @@
     "pages/index/index",
     "pages/storage/index",
     "pages/scan_qrcode/index",
-    "pages/get_location/index",
+    "pages/map/index",
     "pages/logs/logs"
   ],
   "window": {

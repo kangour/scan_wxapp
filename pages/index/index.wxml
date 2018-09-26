@@ -1,7 +1,7 @@
 <view class='container'>
   <view class='button_container'>
     <navigator class="button" url='../scan_qrcode/index'>扫码识别</navigator>
-    <navigator class="button" url='../get_location/index'>经纬识别</navigator>
+    <navigator class="button" url='../map/index'>经纬识别</navigator>
     <navigator class="button" url='../storage/index'>缓存处理</navigator>
   </view>
 </view>
