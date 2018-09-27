@@ -1,4 +1,3 @@
-<!--pages/x/x.wxml-->
 <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" style="width: 100%; height: 800rpx;" show-location>
 </map>
 <view bindtap='copy'>
@@ -8,7 +7,12 @@
   <view>
     <text>纬度：{{latitude}}</text>
   </view>
-</view>
-<view class='button_container'>
+  <view>
+    <text>解析：{{address}}</text>
+  </view>
+</view> 
   <button class="button" type='primary' bindtap='getLocation'>更新坐标</button>
-</view>
+  <button class="button" type='primary' bindtap='moveChoose'>地址搜索</button>
+  <button class="button" type='primary' bindtap='parseCoord'>坐标转地址</button>
+  <button class="button" type='primary' bindtap='geocoder'>地址转坐标</button>
+ 

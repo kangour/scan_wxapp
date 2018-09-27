@@ -1,6 +1,0 @@
-/* pages/x/x.wxss */
-.button_container {
-  width: 90%;
-  bottom: 10%;
-  position: fixed;
-}
