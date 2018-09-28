@@ -4,6 +4,7 @@
     "pages/storage/index",
     "pages/scan_qrcode/index",
     "pages/map/index",
+    "pages/ocr/index",
     "pages/logs/logs"
   ],
   "window": {

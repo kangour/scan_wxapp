@@ -1,4 +1,9 @@
-<map id="map" longitude="{{longitude}}" latitude="{{latitude}}" style="width: 100%; height: 800rpx;" show-location>
+<!-- 需要给地图指定一个id，后面可以通过id获取地图的上下文，moveToLocation 等函数会用到。 -->
+<!-- scale 缩放级别-->
+<!-- bindregionchange 监听地图变化。-->
+<!-- controls 是固定在map组件上面的自定义控件。-->
+<map id="mini_map" longitude="{{longitude}}" latitude="{{latitude}}" style="width: {{map_width}}; height: {{map_height}}px;" bindregionchange="regionchange" markers="{{markers}}" bindmarkertap='{{markertap}}' markers="{{markers}}" controls="{{controls}}" bindcontroltap="{{controltap}}" show-location>
+
 </map>
 <view bindtap='copy'>
   <view>
@@ -8,11 +13,18 @@
     <text>纬度：{{latitude}}</text>
   </view>
   <view>
+    <text>中心经度：{{center_longitude}}</text>
+  </view>
+  <view>
+    <text>中心纬度：{{center_latitude}}</text>
+  </view>
+  <view>
     <text>解析：{{address}}</text>
   </view>
 </view> 
-  <button class="button" type='primary' bindtap='getLocation'>更新坐标</button>
-  <button class="button" type='primary' bindtap='moveChoose'>地址搜索</button>
-  <button class="button" type='primary' bindtap='parseCoord'>坐标转地址</button>
+  <button class="button" type='primary' bindtap='backLocation'>回去</button>
+  <button class="button" type='primary' bindtap='getLocation'>定位</button>
+  <button class="button" type='primary' bindtap='moveChoose'>搜索</button>
+  <button class="button" type='primary' bindtap='getAddress'>坐标转地址</button>
   <button class="button" type='primary' bindtap='geocoder'>地址转坐标</button>
  

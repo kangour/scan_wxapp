@@ -3,5 +3,6 @@
     <navigator class="button" url='../scan_qrcode/index'>扫码识别</navigator>
     <navigator class="button" url='../map/index'>经纬识别</navigator>
     <navigator class="button" url='../storage/index'>缓存处理</navigator>
+    <navigator class="button" url='../ocr/index'>图片文字识别（待定）</navigator>
   </view>
 </view>

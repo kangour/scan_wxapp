@@ -6,6 +6,6 @@
   background-color: rgb(30, 196, 168);
   color: aliceblue;
   border-radius: 10rpx;
-  margin: 0 auto 100rpx auto;
+  margin: 0 auto 50rpx auto;
   height: 180rpx; 
 }
