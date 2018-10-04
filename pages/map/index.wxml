@@ -2,7 +2,7 @@
 <!-- scale 缩放级别-->
 <!-- bindregionchange 监听地图变化。-->
 <!-- controls 是固定在map组件上面的自定义控件。-->
-<map id="mini_map" longitude="{{longitude}}" latitude="{{latitude}}" style="width: {{map_width}}; height: {{map_height}}px;" bindregionchange="regionchange" markers="{{markers}}" bindmarkertap='{{markertap}}' markers="{{markers}}" controls="{{controls}}" bindcontroltap="{{controltap}}" show-location>
+<map id='mini_map' longitude='{{longitude}}' latitude='{{latitude}}' style='width: {{map_width}}; height: {{map_height}}px;' markers='{{markers}}' markers='{{markers}}' controls='{{controls}}' bindregionchange='regionchange' bindmarkertap='markertap' bindcontroltap='controltap' show-location='{{show_compass}}' show-compass>
 
 </map>
 <view bindtap='copy'>
@@ -21,10 +21,11 @@
   <view>
     <text>解析：{{address}}</text>
   </view>
-</view> 
-  <button class="button" type='primary' bindtap='backLocation'>回去</button>
-  <button class="button" type='primary' bindtap='getLocation'>定位</button>
-  <button class="button" type='primary' bindtap='moveChoose'>搜索</button>
-  <button class="button" type='primary' bindtap='getAddress'>坐标转地址</button>
-  <button class="button" type='primary' bindtap='geocoder'>地址转坐标</button>
+</view>
+  <button class='button' type='primary' bindtap='start_point'>设置起点当前位置为起点</button>
+  <button class='button' type='primary' bindtap='getAddress'>坐标转地址</button>
+  <button class='button' type='primary' bindtap='geocoder'>地址转坐标</button>
+  <button class='button' type='primary' bindtap='moveChoose'>搜索</button>
+  <button class='button' type='primary' bindtap='backLocation'>回到起点</button>
+  <button class='button' type='primary' bindtap='getLocation'>重新定位</button>
  

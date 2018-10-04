@@ -23,6 +23,7 @@ Page({
     controls: '',
     map_width: '100%',
     map_height: 300,
+    show_compass: true
   },
 
   onLoad: function(options) {
@@ -46,14 +47,14 @@ Page({
         })
       },
       fail: function(res) {
-        console.log(res);
+        console.warn('失败了', res);
       },
       complete: function(res) {}
     })
   },
 
   /**
-   * 根据坐标解析地址
+   * 坐标解析地址
    */
   getAddress: function() {
     let _this = this
@@ -68,14 +69,13 @@ Page({
         console.log('坐标转地址', res)
         _this.setData({
           address: res.result.address + '\n' + res.result.formatted_addresses.recommend
-
         })
       }
     })
   },
 
   /**
-   * 根据地址解析坐标
+   * 地址解析坐标
    */
   geocoder: function() {
     let _this = this
@@ -127,11 +127,12 @@ Page({
       success: function(res) {
         console.log('系统信息', res)
         let icon_size = 35
-        console.log(7777)
+        let aaa = 1
+        console.log('res.windowWidth', aaa)
         _this.setData({
           controls: [{
-              id: 0,
-              iconPath: '../../image/chat.png',
+              id: 'chat',
+              iconPath: '../../image/map/chat.png',
               position: {
                 left: 10,
                 top: 10,
@@ -141,8 +142,8 @@ Page({
               clickable: true
             },
             {
-              id: 1,
-              iconPath: '../../image/plant.png',
+              id: 'plant',
+              iconPath: '../../image/map/plant.png',
               position: {
                 left: 10,
                 top: 50,
@@ -152,8 +153,8 @@ Page({
               clickable: true
             },
             {
-              id: 2,
-              iconPath: '../../image/icon_position.png',
+              id: 'new_position',
+              iconPath: '../../image/map/icon_position.png',
               position: {
                 left: res.windowWidth / 2 - icon_size / 2,
                 top: _this.data.map_height / 2 - icon_size,
@@ -171,7 +172,8 @@ Page({
   },
 
   /**
-   * mapCtx.moveToLocation() 依托于已经渲染完成的地图在生命周期 onload、onready、onshow 等页面还没有渲染完成的位置使用，会导致移动到坐标为（0, 0）处，显示位置是大海中。
+   * mapCtx.moveToLocation() 将地图中心移动到当前定位点，需要配合map组件的show-location使用
+   * 依托于已经渲染完成的地图在生命周期 onload、onready、onshow 等页面还没有渲染完成的位置使用，会导致移动到坐标为（0, 0）处，显示位置是大海中。
    */
   backLocation: function() {
     let _this = this
@@ -184,34 +186,52 @@ Page({
   getLocation: function() {
     let _this = this
     wx.getLocation({
-      type: 'wgs84',
+      type: 'gcj02',
       altitude: true,
       success: function(res) {
         console.log('坐标信息', res)
         _this.setData({
           longitude: res.longitude,
           latitude: res.latitude,
-          markers: [{
-            id: 0,
-            iconPath: "../../image/icon_location.png",
-            longitude: res.longitude,
-            latitude: res.latitude,
-            width: 30,
-            height: 30
-          }]
         })
+        _this.setStartMarker(res.longitude, res.latitude)
       },
       fail: function(res) {},
       complete: function(res) {},
     })
   },
 
+  setStartMarker: function(longitude, latitude) {
+    this.setData({
+      markers: [{
+        id: 'now_location',
+        iconPath: "../../image/map/icon_location.png",
+        longitude: longitude,
+        latitude: latitude,
+        width: 30,
+        height: 30
+      }]
+    })
+  },
+
   markertap: function(e) {
     console.log('marker点击', e)
+    wx.showToast({
+      title: '未完成的功能',
+      icon: 'none',
+      image: '../../image/common/star.png',
+      mask: true,
+    })
   },
 
   controltap: function(e) {
     console.log('控件点击', e)
+    wx.showToast({
+      title: '未完成的功能',
+      icon: 'none',
+      image: '../../image/common/star.png',
+      mask: true,
+    })
   },
 
   /**
@@ -232,7 +252,6 @@ Page({
           })
         }
       })
-      _this.getAddress()
     }
   },
 
@@ -251,6 +270,11 @@ Page({
         })
       },
     })
+  },
+
+  start_point: function() {
+    let _this = this
+    _this.setStartMarker(_this.data.center_longitude, _this.data.center_latitude)
   },
 
   onReady: function() {
