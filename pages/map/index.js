@@ -20,7 +20,6 @@ Page({
     address: '滑动地图实时解析',
     search_res: '',
     markers: '',
-    controls: '',
     map_width: '100%',
     map_height: 300,
     show_compass: true
@@ -29,7 +28,6 @@ Page({
   onLoad: function(options) {
     let _this = this
     _this.getLocation()
-    _this.create_controls()
     _this.search('学校')
   },
 
@@ -117,60 +115,6 @@ Page({
       complete: function(res) {},
     })
   },
-
-  /**
-   * 添加地图控件
-   */
-  create_controls: function(e) {
-    let _this = this
-    wx.getSystemInfo({
-      success: function(res) {
-        console.log('系统信息', res)
-        let icon_size = 35
-        let aaa = 1
-        console.log('res.windowWidth', aaa)
-        _this.setData({
-          controls: [{
-              id: 'chat',
-              iconPath: '../../image/map/chat.png',
-              position: {
-                left: 10,
-                top: 10,
-                width: icon_size,
-                height: icon_size
-              },
-              clickable: true
-            },
-            {
-              id: 'plant',
-              iconPath: '../../image/map/plant.png',
-              position: {
-                left: 10,
-                top: 50,
-                width: icon_size,
-                height: icon_size
-              },
-              clickable: true
-            },
-            {
-              id: 'new_position',
-              iconPath: '../../image/map/icon_position.png',
-              position: {
-                left: res.windowWidth / 2 - icon_size / 2,
-                top: _this.data.map_height / 2 - icon_size,
-                width: icon_size,
-                height: icon_size
-              },
-              clickable: true
-            }
-          ]
-        })
-      },
-      fail: function(res) {},
-      complete: function(res) {},
-    })
-  },
-
   /**
    * mapCtx.moveToLocation() 将地图中心移动到当前定位点，需要配合map组件的show-location使用
    * 依托于已经渲染完成的地图在生命周期 onload、onready、onshow 等页面还没有渲染完成的位置使用，会导致移动到坐标为（0, 0）处，显示位置是大海中。
@@ -220,17 +164,19 @@ Page({
       title: '未完成的功能',
       icon: 'none',
       image: '../../image/common/star.png',
-      mask: true,
+      mask: false,
+      duration: 400,
     })
   },
 
-  controltap: function(e) {
-    console.log('控件点击', e)
+  xxxtap: function(e) {
+    console.log('cover image 点击', e)
     wx.showToast({
       title: '未完成的功能',
       icon: 'none',
       image: '../../image/common/star.png',
-      mask: true,
+      mask: false,
+      duration: 400,
     })
   },
 

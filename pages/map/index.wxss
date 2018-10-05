@@ -1,0 +1,27 @@
+.buttons {
+  position: absolute;
+  bottom: 40rpx;
+  width: 100%;
+  display: flex;
+}
+
+.left_button {
+  width: 100rpx;
+  height: 100rpx;
+  margin-left: 40rpx;
+  float: left;
+}
+
+/* 用 felx 弹性伸缩性质实现一行多列布局 */
+.center_button {
+  width: 100rpx;
+  height: 100rpx;
+  margin: auto;
+}
+
+.right_button {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 40rpx;
+  float: right;
+}

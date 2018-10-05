@@ -2,8 +2,13 @@
 <!-- scale 缩放级别-->
 <!-- bindregionchange 监听地图变化。-->
 <!-- controls 是固定在map组件上面的自定义控件。-->
-<map id='mini_map' longitude='{{longitude}}' latitude='{{latitude}}' style='width: {{map_width}}; height: {{map_height}}px;' markers='{{markers}}' markers='{{markers}}' controls='{{controls}}' bindregionchange='regionchange' bindmarkertap='markertap' bindcontroltap='controltap' show-location='{{show_compass}}' show-compass>
-
+<map id='mini_map' longitude='{{longitude}}' latitude='{{latitude}}' style='width: {{map_width}}; height: {{map_height}}px;' markers='{{markers}}' markers='{{markers}}' bindregionchange='regionchange' bindmarkertap='markertap' show-location='{{show_compass}}'
+  show-compass>
+  <cover-view class='buttons'>
+    <cover-image bindtap='xxxtap' src='/image/map/chat.png' class='left_button'></cover-image>
+    <cover-image bindtap='xxxtap' src='/image/map/plant.png' class='center_button'></cover-image>
+    <cover-image bindtap='xxxtap' src='/image/map/chat.png' class='right_button'></cover-image>
+  </cover-view>
 </map>
 <view bindtap='copy'>
   <view>
@@ -22,10 +27,9 @@
     <text>解析：{{address}}</text>
   </view>
 </view>
-  <button class='button' type='primary' bindtap='start_point'>设置起点当前位置为起点</button>
-  <button class='button' type='primary' bindtap='getAddress'>坐标转地址</button>
-  <button class='button' type='primary' bindtap='geocoder'>地址转坐标</button>
-  <button class='button' type='primary' bindtap='moveChoose'>搜索</button>
-  <button class='button' type='primary' bindtap='backLocation'>回到起点</button>
-  <button class='button' type='primary' bindtap='getLocation'>重新定位</button>
- 
+<button class='button' type='primary' bindtap='start_point'>设置起点当前位置为起点</button>
+<button class='button' type='primary' bindtap='getAddress'>坐标转地址</button>
+<button class='button' type='primary' bindtap='geocoder'>地址转坐标</button>
+<button class='button' type='primary' bindtap='moveChoose'>搜索</button>
+<button class='button' type='primary' bindtap='backLocation'>回到起点</button>
+<button class='button' type='primary' bindtap='getLocation'>重新定位</button>
