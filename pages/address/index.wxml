@@ -1,0 +1,9 @@
+<view class="container">
+  <view class='message_container' bindtap='copy'>
+    <text class="message">{{message}}</text>
+  </view>
+  <view class='button_container'>
+    <button open-type="getPhoneNumber" type='primary' bindgetphonenumber="getPhoneNumber">手机号加密数据</button>
+    <button class="button" type='primary' bindtap='chooseAddress'>地址识别</button>
+  </view>
+</view>

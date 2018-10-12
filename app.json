@@ -5,6 +5,10 @@
     "pages/scan_qrcode/index",
     "pages/map/index",
     "pages/ocr/index",
+    "pages/official_account/index",
+    "pages/auth/index",
+    "pages/address/index",
+    "pages/promise/index",
     "pages/logs/logs"
   ],
   "window": {
