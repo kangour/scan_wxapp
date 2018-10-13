@@ -102,7 +102,7 @@ function wxPromise(callback, obj = {}) {
  * Promise 函数的 resolve 和 reject 是可以任意命名的，它根据两者的位置决定是否通过，第一个表示通过，第二个表示拒绝。
  * 所以，如果 args 传过来的数组参数数量不等于 callback 实际需要的参数，会导致执行的结果变得难以确认。
  */
-function miniPromise(callback, args) {
+function miniPromise(callback, args = []) {
   return () => {
     return new Promise((resolve, reject) => {
       args.push(resolve, reject)
