@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 2,
 			"list": [
 				{
 					"id": 0,
@@ -45,9 +45,15 @@
 					"query": ""
 				},
 				{
+					"id": 1,
+					"name": "address",
+					"pathName": "pages/address/index",
+					"query": ""
+				},
+				{
 					"id": -1,
-					"name": "x",
-					"pathName": "pages/x/x",
+					"name": "Promise",
+					"pathName": "pages/promise/index",
 					"query": ""
 				}
 			]
