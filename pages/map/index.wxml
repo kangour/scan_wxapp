@@ -9,6 +9,9 @@
     <cover-image bindtap='xxxtap' src='/image/map/plant.png' class='center_button'></cover-image>
     <cover-image bindtap='xxxtap' src='/image/map/chat.png' class='right_button'></cover-image>
   </cover-view>
+  <cover-view class='position'>
+    <cover-image bindtap='xxxtap' src='/image/map/icon_position.png' class='new_position'></cover-image>
+  </cover-view>
 </map>
 <view bindtap='copy'>
   <view>
@@ -27,7 +30,7 @@
     <text>解析：{{address}}</text>
   </view>
 </view>
-<button class='button' type='primary' bindtap='start_point'>设置起点当前位置为起点</button>
+<button class='button' type='primary' bindtap='start_point'>标记</button>
 <button class='button' type='primary' bindtap='getAddress'>坐标转地址</button>
 <button class='button' type='primary' bindtap='geocoder'>地址转坐标</button>
 <button class='button' type='primary' bindtap='moveChoose'>搜索</button>

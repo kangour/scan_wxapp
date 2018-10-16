@@ -106,10 +106,10 @@ Page({
     wx.setClipboardData({
       data: text,
       success: function(res) {
-        wx.showToast({
-          title: '复制成功',
-          icon: 'none',
-        })
+        // wx.showToast({
+        //   title: '复制成功',
+        //   icon: 'none',
+        // })
       },
       fail: function(res) {},
       complete: function(res) {},
