@@ -1,0 +1,23 @@
+（通过弹窗按钮触发 wx.openSetting）
+<button class='button' type='primary' bindtap='auth_album'>申请相册授权</button>
+
+<button class='button' type='primary' bindtap='auth_location'>申请位置授权</button>
+<!-- 引导用户打开设置页授权 -->
+<view wx:if="{{showOpenSetting}}" class='mask_popup'>
+  <view class='window_popup'>
+    <view class='title_popup'>
+      保存授权
+    </view>
+    <view class='text_popup'>
+      开启保存权限存储明信片
+    </view>
+    <view class='area_button'>
+      <button class='button_popup' bindtap='cancelOpenSetting'>
+        我不
+      </button>
+      <button class='button_popup button_determine' bindtap="openSetting">
+        前往开启
+      </button>
+    </view>
+  </view>
+</view>
