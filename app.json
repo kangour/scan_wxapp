@@ -9,6 +9,7 @@
     "pages/auth/index",
     "pages/address/index",
     "pages/promise/index",
+    "pages/animation/index",
     "pages/logs/logs"
   ],
   "window": {

@@ -3,11 +3,12 @@
     <view>开箱即用</view>
     <navigator class="button" url='../scan_qrcode/index'>扫码识别</navigator>
     <navigator class="button" url='../map/index'>经纬识别</navigator>
-    <navigator class="button" url='../address/index'>获取地址</navigator>
+    <navigator class="button" url='../address/index'>收货地址</navigator>
     <navigator class="button" url='../auth/index'>引导授权</navigator>
     <navigator class="button" url='../ocr/index'>图片文字识别（待定）</navigator>
     <view>其他模块</view>
     <navigator class="button" url='../storage/index'>缓存处理</navigator>
+    <navigator class="button" url='../animation/index'>动画效果</navigator>
     <navigator class="button" url='../official_account/index'>关注公众号</navigator>
     <navigator class="button" url='../promise/index'>Promise</navigator>
   </view>

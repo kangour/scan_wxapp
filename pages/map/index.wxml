@@ -21,16 +21,17 @@
     <text>纬度：{{latitude}}</text>
   </view>
   <view>
-    <text>中心经度：{{center_longitude}}</text>
+    <text>中心经度：{{to_longitude}}</text>
   </view>
   <view>
-    <text>中心纬度：{{center_latitude}}</text>
+    <text>中心纬度：{{to_latitude}}</text>
   </view>
   <view>
     <text>解析：{{address}}</text>
   </view>
 </view>
-<button class='button' type='primary' bindtap='start_point'>标记</button>
+<button class='button' type='primary' bindtap='start_point'>标记起点</button>
+<button class='button' type='primary' bindtap='navigate'>导航</button>
 <button class='button' type='primary' bindtap='getAddress'>坐标转地址</button>
 <button class='button' type='primary' bindtap='geocoder'>地址转坐标</button>
 <button class='button' type='primary' bindtap='moveChoose'>搜索</button>

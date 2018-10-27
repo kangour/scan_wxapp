@@ -1,0 +1,8 @@
+.line {
+  display: flex;
+  animation: loadingLine 2s linear infinite;
+}
+.image_line{
+  margin: auto;
+
+}

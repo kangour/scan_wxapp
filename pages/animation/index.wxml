@@ -1,0 +1,3 @@
+<view class="line">
+  <image class='image_line' mode='center' src="../../image/animation/line.png"></image>
+</view>

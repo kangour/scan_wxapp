@@ -15,8 +15,10 @@ Page({
   data: {
     longitude: 0,
     latitude: 0,
-    center_longitude: 0,
-    center_latitude: 0,
+    from_longitude: 0,
+    from_latitude: 0,
+    to_longitude: 0,
+    to_latitude: 0,
     address: '滑动地图实时解析',
     search_res: '',
     markers: '',
@@ -29,8 +31,33 @@ Page({
     let _this = this
     _this.getLocation()
     _this.search('学校')
+    _this.navigate()
   },
 
+  navigate: function() {
+    let _this = this
+    //距离计算
+    console.log('距离计算')
+    qqmap.calculateDistance({
+      to: [{
+        latitude: _this.from_latitude,
+        longitude: _this.from_longitude
+      }, {
+        latitude: _this.to_latitude,
+        longitude: _this.to_longitude
+      }],
+      success: function(res) {
+        console.log('距离计算结果', res)
+      },
+
+      fail: function(res) {
+        console.log(res);
+      },
+      complete: function(res) {
+        console.log(res);
+      }
+    });
+  },
   /**
    * 根据关键字搜索周边地点
    */
@@ -56,12 +83,12 @@ Page({
    */
   getAddress: function() {
     let _this = this
-    let center_longitude = this.data.center_longitude
-    let center_latitude = this.data.center_latitude
+    let to_longitude = this.data.to_longitude
+    let to_latitude = this.data.to_latitude
     qqmap.reverseGeocoder({
       location: {
-        latitude: center_latitude,
-        longitude: center_longitude
+        latitude: to_latitude,
+        longitude: to_longitude
       },
       success: function(res) {
         console.log('坐标转地址', res)
@@ -99,8 +126,8 @@ Page({
       _this.data.latitude + "," +
       _this.data.longitude + '\n' +
       '调整坐标：' +
-      _this.data.center_latitude + "," +
-      _this.data.center_longitude + '\n' +
+      _this.data.to_latitude + "," +
+      _this.data.to_longitude + '\n' +
       '对应地址：' +
       _this.data.address
     wx.setClipboardData({
@@ -193,8 +220,8 @@ Page({
           console.log('中点位置信息', res)
           // 这里的坐标不能设置为当前点坐标，否则会陷入死循环（当前点被移动点替代触发新的改变）
           _this.setData({
-            center_longitude: res.longitude.toFixed(6),
-            center_latitude: res.latitude.toFixed(6),
+            to_longitude: res.longitude.toFixed(6),
+            to_latitude: res.latitude.toFixed(6),
           })
         }
       })
@@ -220,7 +247,11 @@ Page({
 
   start_point: function() {
     let _this = this
-    _this.setStartMarker(_this.data.center_longitude, _this.data.center_latitude)
+    _this.setData({
+      from_longitude: _this.data.to_longitude,
+      from_latitude: _this.data.to_latitude
+    })
+    _this.setStartMarker(_this.data.to_longitude, _this.data.to_latitude)
   },
 
   onReady: function() {
