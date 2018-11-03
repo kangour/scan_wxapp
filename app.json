@@ -10,6 +10,7 @@
     "pages/address/index",
     "pages/promise/index",
     "pages/animation/index",
+    "pages/websocket/index",
     "pages/logs/logs"
   ],
   "window": {
