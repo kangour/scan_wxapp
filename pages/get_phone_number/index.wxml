@@ -1,0 +1,3 @@
+<!--pages/get_phone_number/index.wxml-->
+<text>pages/get_phone_number/index.wxml</text>
+<button open-type='getPhoneNumber' bindgetphonenumber='getPhoneNumber' type=''>微信一键登录</button>
