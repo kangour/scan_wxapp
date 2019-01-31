@@ -1,6 +1,6 @@
 let mapsdk = require('../../utils/qqmap-wx-jssdk.js')
 let qqmap = new mapsdk({
-  key: '7CHBZ-QB633-WBR3Y-3EYLY-ZWWJJ-UWBHT' // 申请地址：https://lbs.qq.com/console/key.html
+  key: 'LPKBZ-PG66D-LFN4S-PPMP7-MYYAZ-3SFSA' // 申请地址：https://lbs.qq.com/console/key.html
 })
 
 /**

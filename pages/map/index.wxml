@@ -3,7 +3,7 @@
 <!-- bindregionchange 监听地图变化。-->
 <!-- controls 是固定在map组件上面的自定义控件。-->
 <map id='mini_map' longitude='{{longitude}}' latitude='{{latitude}}' style='width: {{map_width}}; height: {{map_height}}px;' markers='{{markers}}' markers='{{markers}}' bindregionchange='regionchange' bindmarkertap='markertap' show-location='{{show_compass}}'
-  show-compass>
+  show-compass subkey='LPKBZ-PG66D-LFN4S-PPMP7-MYYAZ-3SFSA'>
   <cover-view class='buttons'>
     <cover-image bindtap='xxxtap' src='/image/map/chat.png' class='left_button'></cover-image>
     <cover-image bindtap='xxxtap' src='/image/map/plant.png' class='center_button'></cover-image>
