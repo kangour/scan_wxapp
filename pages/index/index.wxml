@@ -4,6 +4,8 @@
     <navigator class="button" url='../scan_qrcode/index'>扫码识别</navigator>
     <navigator class="button" url='../map/index'>经纬识别</navigator>
     <navigator class="button" url='../address/index'>收货地址</navigator>
+    <navigator class="button" url='../get_phone_number/index'>获取手机号</navigator>
+    <navigator class="button" url='../upload/index'>上传文件（图片举例）</navigator>
     <navigator class="button" url='../auth/index'>引导授权</navigator>
     <navigator class="button" url='../ocr/index'>图片文字识别（待定）</navigator>
     <view>其他模块</view>

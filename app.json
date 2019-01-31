@@ -11,6 +11,8 @@
     "pages/promise/index",
     "pages/animation/index",
     "pages/websocket/index",
+    "pages/get_phone_number/index",
+    "pages/upload/index",
     "pages/logs/logs"
   ],
   "window": {
