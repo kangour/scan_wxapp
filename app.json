@@ -18,5 +18,10 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "开朗工具箱",
     "navigationBarTextStyle": "black"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "授权后可体验小程序完整服务"
+    }
   }
 }
