@@ -33,7 +33,23 @@ App({
       }
     })
   },
+
   globalData: {
-    userInfo: null
+    version: '2.2.0',
+    vloop_config: {
+      server_address: 'https://test.xx.xx',
+      secrect_key: '',
+    },
+    tencent_lbs_config: {
+      webKey: '',
+      secretKey: '',
+    },
+    cdn_config: {
+      key: '',
+      address: "",
+    },
+    fundebug_config: {
+      apikey: ""
+    },
   }
 })

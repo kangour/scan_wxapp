@@ -1,3 +1,4 @@
+let util = require('../../utils/util.js')
 // pages/get_phone_number/index.js
 Page({
 
@@ -24,6 +25,7 @@ Page({
       encrypted_data: encrypted_data,
     })()
   },
+  // 个人号好像不支持获取手机号
 //  后端代码：
 //   WXBizDataCrypt.py
 // import base64

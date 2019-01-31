@@ -1,3 +1,4 @@
+let util = require('../../utils/util.js')
 // pages/upload/index.js
 Page({
 
@@ -45,6 +46,7 @@ Page({
           },
           fail: function(res) {
             wx.hideToast();
+            console.error(res)
             wx.showModal({
               title: '错误提示',
               content: '上传图片失败',

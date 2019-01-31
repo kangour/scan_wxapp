@@ -1,2 +1,4 @@
 <!--pages/upload/index.wxml-->
 <text>pages/upload/index.wxml</text>
+
+<button bindtap='upload' type=''>上传</button>
