@@ -1,6 +1,6 @@
 //app.js
 App({
-  onLaunch: function () {
+  onLaunch: function() {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -35,9 +35,9 @@ App({
   },
 
   globalData: {
-    version: '2.2.0',
+    version: '1.0.2',
     vloop_config: {
-      server_address: 'https://test.xx.xx',
+      server_address: 'https://test.vloop.cc',
       secrect_key: '',
     },
     tencent_lbs_config: {
