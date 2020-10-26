@@ -535,6 +535,43 @@
    }
  }
 
+
+ function break_promise(res) {
+   return new Promise((resolve, reject) => {
+     if (res) {
+       reject(res)
+     } else {
+       reject('break')
+     }
+   })
+ }
+
+ function raise_promise(res) {
+   return new Promise((resolve, reject) => {
+     if (res) {
+       reject(res)
+     } else {
+       reject('Throw an exception', res)
+     }
+   })
+ }
+
+ function next_promise(res) {
+   return new Promise((resolve, reject) => {
+     if (res) {
+       resolve(res)
+     } else {
+       resolve('finally')
+     }
+   })
+ }
+
+ function continue_promise() {
+   return new Promise((resolve, reject) => {
+     reject('continue')
+   })
+ }
+
  function sleep(msec, callback) {
    return () => {
      return new Promise((resolve) => setTimeout(() => {
@@ -555,6 +592,12 @@
      path: '/ws/direction/v1/walking',
      method: 'GET',
      secrect_key: app.globalData.tencent_lbs_config.secretKey,
+   },
+   'bag_returned': {
+     host: app.globalData.vloop_config.server_address,
+     path: '/misc/bag_returned',
+     method: 'POST',
+     secrect_key: app.globalData.vloop_config.secrect_key,
    },
    'activity': {
      host: app.globalData.vloop_config.server_address,
@@ -794,6 +837,7 @@
    showToast: showToast,
    mini_promise: mini_promise,
    nano_promise: nano_promise,
+   next_promise: next_promise,
    mini_request: mini_request,
    sendEvent: sendEvent,
    getextraData: getextraData,
