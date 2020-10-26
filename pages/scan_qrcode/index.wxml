@@ -1,9 +1,15 @@
 <!--index.wxml-->
-<view class="container">
-  <view class='message_container' bindtap='copy'>
-    <text class="message">{{message}}</text>
-  </view>
-  <view class='button_container'>
-    <button class="button" type='primary' bindtap='scan'> 扫码识别 </button>
+<view class="main">
+  <view class="flex   auto-center">
+    <view class="flex  " style="width: 90%">
+      <view class='flex auto-center ' bindtap='copy' style=" height: 50%">
+        <view class="flex auto-center line-gray-low" style=" height: 30vh;">
+          <text class="message">{{message}}</text>
+        </view>
+      </view>
+      <view class=' flex auto-center ' style=" height: 50%; ">
+        <button class="button" type='primary' bindtap='scan'style="width: 100%" >扫码识别</button>
+      </view>
+    </view>
   </view>
 </view>
