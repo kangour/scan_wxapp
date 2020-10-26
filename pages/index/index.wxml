@@ -1,8 +1,12 @@
-<view class='container'>
-  <view class='button_container'>
-    <view>开箱即用</view>
-    <navigator class="button" url='../scan_qrcode/index'>扫码识别</navigator>
-    <navigator class="button" url='../map/index'>经纬识别</navigator>
+<view class='main '>
+  <view class='flex auto-center'>
+
+    <view class='flex auto-center ' style=" width: 90%">
+      <navigator class="bg-cyan border-radius-5" url='../scan_qrcode/index' style="width: 100%; height: 18%; margin-top: 20px;">相册扫码</navigator>
+      <navigator class="bg-cyan border-radius-5" url='../auto_scan/index' style="width: 100%; height: 18%; margin-top: 20px;">自动扫码</navigator>
+      <navigator class="bg-cyan border-radius-5" url='../bag_delivery/index' style="width: 100%; height: 18%; margin-top: 20px;">包裹扫码</navigator>
+      <!-- <navigator class="bg-cyan" url='../bag_delivery/index'>包裹识别</navigator> -->
+      <!-- <navigator class="button" url='../map/index'>经纬识别</navigator>
     <navigator class="button" url='../address/index'>收货地址</navigator>
     <navigator class="button" url='../get_phone_number/index'>获取手机号</navigator>
     <navigator class="button" url='../upload/index'>上传文件（图片举例）</navigator>
@@ -13,5 +17,15 @@
     <navigator class="button" url='../animation/index'>动画效果</navigator>
     <navigator class="button" url='../official_account/index'>关注公众号</navigator>
     <navigator class="button" url='../promise/index'>Promise</navigator>
+
+    <button open-type='contact' class="button">联系客服</button>
+    <button open-type="getUserInfo" class="button">获取用户信息</button>
+    <button open-type="share" class="button">share</button>
+    <button open-type="getPhoneNumber" class="button">getPhoneNumber</button>
+    <button open-type="launchApp" class="button">launchApp</button>
+    <button open-type="openSetting" class="button">openSetting</button>
+    <button open-type="feedback" class="button">feedback</button> -->
+
+    </view>
   </view>
 </view>
