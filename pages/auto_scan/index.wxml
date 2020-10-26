@@ -1,0 +1,26 @@
+<view class="  main">
+  <view class="flex bg-gray" style="height: 80%;">
+    <block wx:if="{{has_camera_authorize == true}}">
+      <view class="flex ">
+        <camera device-position="back" mode="scanCode" flash="off" bindstop="camera_stop" binderror="camera_error" bindinitdone="camera_initdone" bindscancode="camera_scancode" style="width: 100%; height: 100%;">
+        </camera>
+      </view>
+    </block>
+    <block wx:elif="{{has_camera_authorize == false}}">
+      <view class="flex auto-center">
+        <view bindtap="openSetting" class="flex bg-cyan auto-center border-radius-5" style="width: 50%; height: auto; padding: 5px 10px;">打开摄像头</view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="flex auto-center ">
+        相机加载中
+      </view>
+    </block>
+  </view>
+  <!-- <button type="primary" bindtap="takePhoto">拍照</button> -->
+  <view class="flex auto-center" style="height: 20%;">
+    <view bindtap='copy' class="flex auto-center color-gray font-size-1-2em" style=" width: 96%; height: 96%;">
+      {{barcode}}
+    </view>
+  </view>
+</view>
