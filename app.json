@@ -13,17 +13,20 @@
     "pages/websocket/index",
     "pages/get_phone_number/index",
     "pages/upload/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/bag_delivery/index",
+    "pages/auto_scan/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "开朗工具箱",
+    "navigationBarTitleText": "扫码工具箱",
     "navigationBarTextStyle": "black"
   },
   "permission": {
     "scope.userLocation": {
       "desc": "授权后可体验小程序完整服务"
     }
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

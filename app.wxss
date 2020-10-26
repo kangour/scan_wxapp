@@ -1,10 +1,666 @@
-/**app.wxss**/
-.container {
+page {
+  margin: 0;
+  padding: 0;
+  /* color: #404040; */
+}
+
+.main {
+  width: 100vw;
+  height: 100vh;
+}
+
+.flex {
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
+  /* align-items: center;
+  justify-content: center; */
+  word-break: break-all;
+}
+
+.auto-overflow {
+  overflow: auto;
+}
+
+.auto-overflow::-webkit-scrollbar {
+  width: 5px;
+  height: 0px;
+}
+
+.auto-overflow::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+.auto-overflow:hover::-webkit-scrollbar {
+  width: 5px;
+  height: 0px;
+  background: rgba(238, 238, 238, 1);
+  border-radius: 5px;
+}
+
+.auto-overflow:hover::-webkit-scrollbar-thumb {
+  background: #9bcaff;
+  border-radius: 10px;
+}
+
+.cursor-hand {
+  cursor: pointer;
+}
+
+.cursor-move {
+  cursor: move;
+}
+
+.cursor-n-resize {
+  cursor: n-resize;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+}
+
+.row-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.auto-center {
   align-items: center;
+  justify-content: center;
+}
+
+.center {
+  justify-content: center;
+}
+
+.center-align-items {
+  align-items: center;
+}
+
+.center-y {
+  align-items: center;
+}
+
+.space-around {
+  /* align-items: center; */
+  justify-content: space-around;
+}
+
+.space-around-align-items {
+  align-items: space-around;
+}
+
+.space-around-y {
+  align-items: space-around;
+}
+
+.space-between {
+  /* align-items: center; */
   justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
+}
+
+.space-between-align-items {
+  align-items: space-between;
+}
+
+.space-between-y {
+  align-items: space-between;
+}
+
+.flex-start {
+  /* align-items: center; */
+  justify-content: flex-start;
+}
+
+.flex-start-align-items {
+  align-items: flex-start;
+}
+
+.flex-start-y {
+  align-items: flex-start;
+}
+
+.flex-end {
+  /* align-items: center; */
+  justify-content: flex-end;
+}
+
+.flex-end-align-items {
+  align-items: flex-end;
+}
+
+.flex-end-y {
+  align-items: flex-end;
+}
+
+/* color */
+
+.color-black {
+  color: #000;
+}
+
+.color-black-low {
+  color: #333;
+}
+
+.color-deep-yellow {
+  color: #ffa808;
+}
+
+.color-red {
+  color: #e06662;
+}
+
+.color-yellow {
+  color: #fff2df;
+}
+
+.color-blue {
+  color: #0387ff;
+}
+
+.color-blue-low {
+  color: #5c7ed4;
+}
+
+.color-white {
+  color: #fff;
+}
+
+.color-white-low {
+  color: #eee;
+}
+
+.color-gray-low {
+  color: #aaa;
+}
+
+.color-gray {
+  color: #666;
+}
+
+.bg-white {
+  background: #fff;
+  color: #777;
+}
+
+.bg-white-low {
+  background: #eee;
+  color: #999;
+}
+
+.bg-white-navigate {
+  background: #f8f8f8;
+  color: #999;
+}
+
+.bg-deep-yellow {
+  background: #ff6f37;
+  color: #fff;
+}
+
+.bg-yellow {
+  background: #ffb20f;
+  color: #fff;
+}
+
+.bg-red {
+  background: #e06662;
+  color: #fff;
+}
+
+.bg-green {
+  background: #62e073;
+  color: #fff;
+}
+
+.color-green {
+  color: #62e073;
+}
+
+.color-green-low {
+  color: #51ab9f;
+}
+
+.bg-blue {
+  background: #2d9fd8;
+  color: #fff;
+}
+
+.bg-wall {
+  background: #ea734b;
+  color: #fff;
+}
+
+.bg-wall-low {
+  background: #e1734b;
+  color: #fff;
+}
+
+.color-wall {
+  color: #c55b4a;
+  color: #fff;
+}
+
+.bg-gray {
+  background: #777;
+  color: #fff;
+}
+
+.bg-gray-low {
+  background: #aaa;
+  color: #fff;
+}
+
+.bg-black {
+  background: #555;
+  color: #fff;
+}
+
+.bg-deep-black {
+  background: #000;
+  color: #fff;
+}
+
+.bg-orange {
+  background-color: #f37b1d;
+  color: #fff;
+}
+
+.bg-olive {
+  background-color: #8dc63f;
+  color: #fff;
+}
+
+.bg-cyan {
+  background-color: #1cbbb4;
+  color: #fff;
+}
+
+.color-cyan {
+  color: #1cbbb4;
+}
+
+.bg-purple {
+  background-color: #6739b6;
+  color: #fff;
+}
+
+.bg-mauve {
+  background-color: #9c26b0;
+  color: #fff;
+}
+
+.bg-pink {
+  background-color: #e03997;
+  color: #fff;
+}
+
+.bg-brown {
+  background-color: #a5673f;
+  color: #fff;
+}
+
+.font-weight-bold {
+  font-weight: bold;
+}
+
+.auto-size {
+  width: auto;
+  height: auto;
+}
+
+.auto-height {
+  height: auto;
+}
+
+.harf-size {
+  width: 50vw;
+}
+
+.margin-bottom-10 {
+  margin-bottom: 10px;
+}
+
+.margin-top {
+  margin-top: 10px;
+}
+
+.margin-top-1 {
+  margin-top: 1px;
+}
+
+.common-padding {
+  padding: 0 1%;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #eee;
+}
+
+.hover-shadow:hover {
+  /* box-shadow: 0px 1px 10px #9dd2e6; */
+  color: #333;
+  background: #bae7ff;
+}
+
+.inset-shadow-gray {
+  box-shadow: 0 0px 2px 0px rgba(102, 102, 102, 0.5) inset;
+}
+
+.inset-shadow-white {
+  box-shadow: 0 0px 2px 0px rgba(255, 255, 255, 0.5) inset;
+}
+
+.border-shadow {
+  box-shadow: 0px 15px 20px -15px #666;
+}
+
+.shadow-bottom {
+  box-shadow: 0px 4px 7px -7px #5e5e5e;
+}
+
+.shadow-right {
+  box-shadow: 7px 0px 7px -7px #5e5e5e;
+}
+
+.shadow-left {
+  box-shadow: -7px 0px 7px -7px #5e5e5e;
+}
+
+.showdow-top {
+  box-shadow: 0px -7px 2px -8px #5e5e5e;
+}
+
+.box-shadow {
+  box-shadow: 1px 2px 10px rgba(58, 52, 52, 0.8);
+}
+
+.box-shadow-s {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.box-shadow-m {
+  box-shadow: 1px 2px 10px rgba(58, 52, 52, 0.8);
+}
+
+.box-shadow-l {
+  box-shadow: 1px 2px 10px rgba(58, 52, 52, 0.8);
+}
+
+.line-blue {
+  border: 1px solid rgb(119, 119, 211);
+}
+
+.line-gray {
+  border: 1px solid rgb(128, 128, 146);
+}
+
+.line-gray-low {
+  border: 1rpx solid #aaa; 
+}
+
+.border-white {
+  border: 1px solid white;
+}
+
+.background-color {
+  /* height: 100vh; */
+  background-color: #84cdfa;
+}
+
+.hour {
+  width: 16%;
+}
+
+.auto-padding {
+  padding: 0% 22% 0% 22%;
+}
+
+.auto-padding-y {
+  padding: 1% 0% 1% 0%;
+}
+
+.auto-margin-left {
+  margin-left: 10%;
+}
+
+.auto-padding-x {
+  padding: 0% 1% 0% 1%;
+}
+
+.link-text {
+  color: #007aff;
+  text-decoration: underline;
+}
+
+.font-size-big {
+  font-size: 16px;
+}
+
+.font-size-common {
+  font-size: 14px;
+}
+
+.font-size-small {
+  font-size: 12px;
+}
+
+.font-size-15px {
+  font-size: 15px;
+}
+
+.font-size-20px {
+  font-size: 20px;
+}
+
+.font-size-25px {
+  font-size: 25px;
+}
+
+.font-size-30px {
+  font-size: 30px;
+}
+
+.font-size-0-5em {
+  font-size: 0.5em;
+}
+
+.font-size-0-6em {
+  font-size: 0.6em;
+}
+
+.font-size-0-7em {
+  font-size: 0.7em;
+}
+
+.font-size-0-8em {
+  font-size: 0.8em;
+}
+
+.font-size-0-9em {
+  font-size: 0.9em;
+}
+
+.font-size-1-1em {
+  font-size: 1.1em;
+}
+
+.font-size-1-2em {
+  font-size: 1.2em;
+}
+
+.font-size-1-3em {
+  font-size: 1.3em;
+}
+
+.font-size-1-4em {
+  font-size: 1.4em;
+}
+
+.font-size-1-5em {
+  font-size: 1.5em;
+}
+
+.font-size-1-6em {
+  font-size: 1.8em;
+}
+
+.font-size-1-7em {
+  font-size: 1.8em;
+}
+
+.font-size-1-8em {
+  font-size: 1.8em;
+}
+
+.font-size-2em {
+  font-size: 2em;
+}
+
+.font-size-3em {
+  font-size: 3em;
+}
+
+.font-size-4em {
+  font-size: 4em;
+}
+
+.font-size-5em {
+  font-size: 5em;
+}
+
+.gray {
+  color: #8f8f94;
+}
+
+.big-gray {
+  color: #4f4f44;
+}
+
+.big-image {
+  width: 30vw;
+  height: 30vw;
+}
+
+.background-yellow {
+  background: #fff2df;
+}
+
+.padding-x {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.marge-top {
+  margin-top: 20px;
+}
+
+input, select {
+  outline-style: none;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 8px 8px;
+}
+
+.more_app {
+  position: relative;
+  display: inline-block;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.opacity-01 {
+  opacity: 0.1;
+}
+
+.opacity-02 {
+  opacity: 0.2;
+}
+
+.opacity-03 {
+  opacity: 0.3;
+}
+
+.opacity-04 {
+  opacity: 0.4;
+}
+
+.opacity-05 {
+  opacity: 0.5;
+}
+
+.opacity-06 {
+  opacity: 0.6;
+}
+
+.opacity-07 {
+  opacity: 0.7;
+}
+
+.opacity-08 {
+  opacity: 0.8;
+}
+
+.opacity-09 {
+  opacity: 0.9;
+}
+
+.border-radius-5 {
+  border-radius: 5px;
+}
+
+.border-radius-10 {
+  border-radius: 10px;
+}
+
+.border-radius-15 {
+  border-radius: 15px;
+}
+
+.border-radius-message {
+  border-radius: 15px 15px 5px 15px;
+}
+
+.padding-top {
+  padding-top: 5px;
+}
+
+.padding-5 {
+  padding: 5px;
+}
+
+.padding-10 {
+  padding: 10px;
+}
+
+.padding-15 {
+  padding: 15px;
+}
+
+.margin-5 {
+  margin: 5px;
+}
+
+.margin-10 {
+  margin: 10px;
+}
+
+.margin-15 {
+  margin: 15px;
+}

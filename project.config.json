@@ -18,6 +18,8 @@
 		"hidedInDevtools": []
 	},
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -33,6 +35,10 @@
 		},
 		"game": {
 			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
 			"list": []
 		},
 		"miniprogram": {
@@ -59,7 +65,29 @@
 				{
 					"id": -1,
 					"name": "animation",
-					"pathName": "pages/animation/index"
+					"pathName": "pages/animation/index",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "pages/scan_qrcode/index",
+					"pathName": "pages/scan_qrcode/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/bag_delivery/index",
+					"pathName": "pages/bag_delivery/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/auto_scan/index",
+					"pathName": "pages/auto_scan/index",
+					"query": "",
+					"scene": null
 				}
 			]
 		}
