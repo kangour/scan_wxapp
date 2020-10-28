@@ -29,12 +29,14 @@ Page({
     bag_id: null,
     fail_upload_bag_id: [],
     has_camera_authorize: null,
+    retry_tip: '',
+    request_tip: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     innerAudioContext.onPlay(() => {
       console.log('开始播放')
     })
@@ -48,14 +50,14 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
     let _this = this
     nano_promise(_this.checkCameraAuthorize)()
       .then(res => {
@@ -72,35 +74,35 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   },
 
@@ -136,7 +138,7 @@ Page({
     if (scan_type == 'barcode') {
       if (this.check_bag_id(result)) {
         if (this.data.bag_id == result) {
-          console.log('重复识别')
+          // console.log('重复识别')
           return false
         }
         this.data.bag_id = result
@@ -161,29 +163,40 @@ Page({
 
     wx.setClipboardData({
       data: _this.data.barcode,
-      success: function(res) {
+      success: function (res) {
         wx.showToast({
           title: '复制成功',
         })
       },
-      fail: function(res) {},
-      complete: function(res) {},
+      fail: function (res) { },
+      complete: function (res) { },
     })
   },
 
   async retry_upload() {
+    let _this = this
     let bag_id = null
+    let fail_length = null
     while (true) {
+      fail_length = this.data.fail_upload_bag_id.length
       console.log('失败列表', this.data.fail_upload_bag_id)
-      if (this.data.fail_upload_bag_id.length > 0) {
+      if (fail_length > 0) {
         bag_id = this.data.fail_upload_bag_id.shift()
+        _this.setData({
+          retry_tip: '[ ' + fail_length + ' ] 失败，重传 ' + bag_id
+        })
+        setTimeout(() => {
+          _this.setData({
+            retry_tip: ''
+          })
+        }, 3000);
         this.request_bag_returned(bag_id)
       }
       await sleep(5000)()
     }
   },
 
-  request_bag_returned: function(bag_id) {
+  request_bag_returned: function (bag_id) {
     console.log('上传', bag_id)
     let _this = this
     // wx.showLoading({
@@ -198,6 +211,15 @@ Page({
         // wx.hideLoading()
         if (res.data.result != "SUCCESS") {
           console.warn(api, res.data)
+
+          _this.setData({
+            request_tip: res.data.description
+          })
+          setTimeout(() => {
+            _this.setData({
+              request_tip: ''
+            })
+          }, 3000);
           // showModal('服务通知', res.data.description)
           if (res.data.reason == "BAG_ID_INVALID") {
 
@@ -217,6 +239,15 @@ Page({
         // wx.hideLoading()
         console.error(api, res)
         _this.data.fail_upload_bag_id.push(bag_id)
+
+        _this.setData({
+          request_tip: '服务器异常，请稍后再试'
+        })
+        setTimeout(() => {
+          _this.setData({
+            request_tip: ''
+          })
+        }, 3000);
         // showModal('服务通知', '上传失败，请检查网络连接和服务器状态。')
         //showModal('服务通知', '服务器异常，请稍后再试')
         // TODO
@@ -228,11 +259,11 @@ Page({
 
 
 
-  checkCameraAuthorize: function(resolve = () => {}, reject = () => {}) {
+  checkCameraAuthorize: function (resolve = () => { }, reject = () => { }) {
     let _this = this
     mini_promise(wx.authorize, {
-        scope: 'scope.camera'
-      })()
+      scope: 'scope.camera'
+    })()
       .then(res => {
         _this.setData({
           has_camera_authorize: true
@@ -247,7 +278,7 @@ Page({
       })
   },
 
-  openSetting: function() {
+  openSetting: function () {
     let _this = this
     console.log('openSetting')
     mini_promise(wx.openSetting)()

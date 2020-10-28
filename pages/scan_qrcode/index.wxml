@@ -4,11 +4,11 @@
     <view class="flex  " style="width: 90%">
       <view class='flex auto-center ' bindtap='copy' style=" height: 50%">
         <view class="flex auto-center line-gray-low" style=" height: 30vh;">
-          <text class="message">{{message}}</text>
+          <text class="color-gray-low">{{barcode}}</text>
         </view>
       </view>
       <view class=' flex auto-center ' style=" height: 50%; ">
-        <button class="button" type='primary' bindtap='scan'style="width: 100%" >扫码识别</button>
+        <button class="button" type='primary' bindtap='scan' style="width: 100%">扫码识别</button>
       </view>
     </view>
   </view>

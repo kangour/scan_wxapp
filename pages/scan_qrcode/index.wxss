@@ -1,19 +1,16 @@
 /**index.wxss**/
-.button_container{
 
+.button_container {
   width: 90%;
-  bottom:10%;
+  bottom: 10%;
   position: fixed;
 }
-.message_container{
- 
+
+.message_container {
   border: 1rpx solid #aaa;
-  width:90%;
+  width: 90%;
   height: 300rpx;
 }
-.message {
-  color: gray;
-}
 
-.button{
+.button {
 }

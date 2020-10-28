@@ -33,7 +33,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     innerAudioContext.onPlay(() => {
       console.log('开始播放')
     })
@@ -47,14 +47,14 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
     let _this = this
     nano_promise(_this.checkCameraAuthorize)()
@@ -72,35 +72,35 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   },
 
@@ -171,31 +171,31 @@ Page({
   copy() {
     let _this = this
     console.log('copy')
-    this.play_voice(this.data.scan_success_voice)
+    // this.play_voice(this.data.scan_success_voice)
     let logistics_barcode = _this.data.logistics_barcode
     let bag_barcode = _this.data.bag_barcode
     let value = "dict(phone_number='', logistics_barcode='" + logistics_barcode + "', vloop_bag_id='" + bag_barcode + "', gift_name=''),"
     wx.setClipboardData({
       data: value,
-      success: function(res) {
+      success: function (res) {
         wx.showToast({
           title: '复制成功',
         })
-        _this.setData({
-          logistics_barcode: '',
-          bag_barcode: '',
-        })
+        // _this.setData({
+        //   logistics_barcode: '',
+        //   bag_barcode: '',
+        // })
       },
-      fail: function(res) {},
-      complete: function(res) {},
+      fail: function (res) { },
+      complete: function (res) { },
     })
   },
 
-  checkCameraAuthorize: function(resolve = () => {}, reject = () => {}) {
+  checkCameraAuthorize: function (resolve = () => { }, reject = () => { }) {
     let _this = this
     mini_promise(wx.authorize, {
-        scope: 'scope.camera'
-      })()
+      scope: 'scope.camera'
+    })()
       .then(res => {
         _this.setData({
           has_camera_authorize: true
@@ -210,7 +210,7 @@ Page({
       })
   },
 
-  openSetting: function() {
+  openSetting: function () {
     let _this = this
     console.log('openSetting')
     mini_promise(wx.openSetting)()
