@@ -1,12 +1,28 @@
 <view class='main '>
-  <view class='flex auto-center'>
+	<view class='flex auto-center'>
 
-    <view class='flex auto-center ' style=" width: 90%">
-      <navigator class="bg-cyan border-radius-5" url='../scan_qrcode/index' style="width: 100%; height: 18%; margin-top: 20px;">相册扫码</navigator>
+		<view class='flex auto-center ' style=" width: 90%">
+			<navigator class="flex bg-cyan border-radius-5 auto-center" url='../auto_scan/index' style="width: 100%; height: 15%; margin-top: 20px;">
+				<view class="flex bg-cyan border-radius-5 auto-center">
+					<view class="font-size-1-1em " style="width: 96%; height: 80%;">
+						自动扫码识别
+					</view>
+				</view>
+			</navigator>
+
+			<navigator class="flex bg-cyan border-radius-5 auto-center" url='../bag_delivery/index' style="width: 100%; height: 15%; margin-top: 20px;">
+				<view class="flex bg-cyan border-radius-5 auto-center">
+					<view class="font-size-1-1em " style="width: 96%; height: 80%;">
+						包裹条码识别
+					</view>
+				</view>
+			</navigator>
+
+			<!-- <navigator class="bg-cyan border-radius-5" url='../scan_qrcode/index' style="width: 100%; height: 18%; margin-top: 20px;">相册扫码</navigator>
       <navigator class="bg-cyan border-radius-5" url='../auto_scan/index' style="width: 100%; height: 18%; margin-top: 20px;">自动扫码</navigator>
-      <navigator class="bg-cyan border-radius-5" url='../bag_delivery/index' style="width: 100%; height: 18%; margin-top: 20px;">包裹扫码</navigator>
-      <!-- <navigator class="bg-cyan" url='../bag_delivery/index'>包裹识别</navigator> -->
-      <!-- <navigator class="button" url='../map/index'>经纬识别</navigator>
+      <navigator class="bg-cyan border-radius-5" url='../bag_delivery/index' style="width: 100%; height: 18%; margin-top: 20px;">包裹扫码</navigator> -->
+
+			<!-- <navigator class="button" url='../map/index'>经纬识别</navigator>
     <navigator class="button" url='../address/index'>收货地址</navigator>
     <navigator class="button" url='../get_phone_number/index'>获取手机号</navigator>
     <navigator class="button" url='../upload/index'>上传文件（图片举例）</navigator>
@@ -25,7 +41,8 @@
     <button open-type="launchApp" class="button">launchApp</button>
     <button open-type="openSetting" class="button">openSetting</button>
     <button open-type="feedback" class="button">feedback</button> -->
+		</view>
 
-    </view>
-  </view>
+		<view class="color-gray-low">v{{version}} </view>
+	</view>
 </view>
