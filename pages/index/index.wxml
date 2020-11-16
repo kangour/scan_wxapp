@@ -2,10 +2,18 @@
 	<view class='flex auto-center'>
 
 		<view class='flex auto-center ' style=" width: 90%">
+			<navigator class="flex bg-cyan border-radius-5 auto-center" url='../scan_qrcode/index' style="width: 100%; height: 15%; margin-top: 20px;">
+				<view class="flex bg-cyan border-radius-5 auto-center">
+					<view class="font-size-1-1em " style="width: 96%; height: 80%;">
+						人工扫码
+					</view>
+				</view>
+			</navigator>
+
 			<navigator class="flex bg-cyan border-radius-5 auto-center" url='../auto_scan/index' style="width: 100%; height: 15%; margin-top: 20px;">
 				<view class="flex bg-cyan border-radius-5 auto-center">
 					<view class="font-size-1-1em " style="width: 96%; height: 80%;">
-						自动扫码识别
+						自动扫码
 					</view>
 				</view>
 			</navigator>

@@ -35,7 +35,7 @@ App({
   },
 
   globalData: {
-    version: '1.0.4',
+    version: '1.0.6',
     vloop_config: {
       server_address: 'https://test.vloop.cc',
       secrect_key: '',

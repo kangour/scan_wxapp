@@ -123,19 +123,19 @@ Page({
   request_bag_returned: function (bag_id) {
     console.log('上传', bag_id)
     let _this = this
-    // wx.showLoading({
-    //   title: '请稍候',
-    // })
+    wx.showLoading({
+      title: '请稍候',
+    })
     let api = 'bag_returned'
     let data = {
       bag_id: bag_id,
     }
     mini_request(api, data)()
       .then(res => {
-        // wx.hideLoading()
+        wx.hideLoading()
         if (res.data.result != "SUCCESS") {
           console.warn(api, res.data)
-          // showModal('服务通知', res.data.description)
+          showModal('服务通知', res.data.description)
           if (res.data.reason == "BAG_ID_INVALID") {
 
           } else if (res.data.reason == "LOGISTICS_NOT_FOUND") {
@@ -147,15 +147,14 @@ Page({
         }
         console.log(api, res.data)
         // TODO
-        // showModal('请求成功啦', JSON.stringify(res.data))
-        // showToast('操作成功')
+        showModal('操作通知', '上传成功')
       })
       .catch(res => {
-        // wx.hideLoading()
+        wx.hideLoading()
         console.error(api, res)
         _this.data.fail_upload_bag_id.push(bag_id)
         // showModal('服务通知', '上传失败，请检查网络连接和服务器状态。')
-        //showModal('服务通知', '服务器异常，请稍后再试')
+        showModal('服务通知', '服务器异常，请稍后再试')
         // TODO
       })
       .finally(res => {

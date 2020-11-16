@@ -30,6 +30,7 @@
     <text>解析：{{address}}</text>
   </view>
 </view>
+<button class='button' type='primary' bindtap='reportAnalytics'>上报</button>
 <button class='button' type='primary' bindtap='start_point'>标记起点</button>
 <button class='button' type='primary' bindtap='navigate'>导航</button>
 <button class='button' type='primary' bindtap='getAddress'>坐标转地址</button>

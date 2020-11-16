@@ -2,7 +2,13 @@ let mapsdk = require('../../utils/qqmap-wx-jssdk.js')
 let qqmap = new mapsdk({
   key: 'LPKBZ-PG66D-LFN4S-PPMP7-MYYAZ-3SFSA' // 申请地址：https://lbs.qq.com/console/key.html
 })
+import {
+  sleep,
+  mini_promise,
+} from '../../utils/util.js'
+import regeneratorRuntime from '../../utils/regenerator-runtime'
 
+let geocoder_result = ''
 /**
  * 待完成
  * 
@@ -27,11 +33,76 @@ Page({
     show_compass: true
   },
 
+  reportAnalytics: function(options) {
+    wx.reportAnalytics('account', {
+      go: '666'
+    });
+  },
+
   onLoad: function(options) {
     let _this = this
-    _this.getLocation()
-    _this.search('学校')
-    _this.navigate()
+    // _this.getLocation()
+    // _this.search('学校')
+    // _this.navigate()
+    function hereDoc(f) {
+      console.warn(f.toString())
+      return f.toString().replace(/^[^\/]+\/\*!?\s?/, '').replace(/\*\/[^\/]+$/, '').replace(/[\t| ]/g, '');
+    }
+    var address_list = hereDoc(function() {
+      /*
+
+      */
+    });
+    console.log(address_list)
+    address_list = address_list.split('\n')
+    console.log(address_list)
+    _this.do_geocoder(address_list)
+    // return
+    // let address_list = [
+    //   '绍兴市柯桥区柯桥街道浙江工业大学之江学院',
+    //   '绍兴市柯桥区柯桥街道北联一区1-2楼',
+    // ]
+    // _this.do_geocoder(address_list)
+  },
+
+  async do_geocoder(address_list) {
+    let _this = this
+    let address = ''
+    let n = 0
+    for (let i in address_list) {
+      address = address_list[i]
+      if (!address) continue
+      _this.test_geocoder(address)
+      n++
+      if (n % 1 == 0) await sleep(500)()
+    }
+    console.log(geocoder_result)
+  },
+
+  /**
+   * 地址解析坐标
+   */
+  test_geocoder(address) {
+    let _this = this
+    // console.log('逆地址解析', address)
+    address = address.replace(/\n/g, '');
+    address = address.replace(/\r/g, '');
+    // let result = JSON.stringify(address)
+    let result = address // JSON.stringify(address)
+    qqmap.geocoder({
+      address: address,
+      success: function(res) {
+        // console.log('地址转坐标', res)
+        // console.log('地址转坐标', res.result.location.lng, res.result.location.lat)
+        result += '\t' + res.result.location.lng + '\t' + res.result.location.lat
+        console.warn('解析', result)
+        geocoder_result += result + '\n'
+      },
+      fail: function(res) {
+        console.error(res)
+        geocoder_result += result + '\n'
+      }
+    })
   },
 
   navigate: function() {
@@ -85,16 +156,20 @@ Page({
     let _this = this
     let to_longitude = this.data.to_longitude
     let to_latitude = this.data.to_latitude
+    console.log(to_longitude, to_latitude)
     qqmap.reverseGeocoder({
       location: {
         latitude: to_latitude,
         longitude: to_longitude
       },
       success: function(res) {
-        console.log('坐标转地址', res)
+        console.log('坐标转地址', res, res.result.address)
         _this.setData({
           address: res.result.address + '\n' + res.result.formatted_addresses.recommend
         })
+      },
+      fail: function(res) {
+        console.error('失败了', res)
       }
     })
   },

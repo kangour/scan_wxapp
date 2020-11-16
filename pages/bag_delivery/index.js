@@ -181,10 +181,10 @@ Page({
         wx.showToast({
           title: '复制成功',
         })
-        // _this.setData({
-        //   logistics_barcode: '',
-        //   bag_barcode: '',
-        // })
+        _this.setData({
+          bag_barcode: '袋子条码',
+          logistics_barcode: '面单条码',
+        })
       },
       fail: function (res) { },
       complete: function (res) { },
@@ -197,12 +197,14 @@ Page({
       scope: 'scope.camera'
     })()
       .then(res => {
+        console.log('有相机权限')
         _this.setData({
           has_camera_authorize: true
         })
         resolve(res)
       })
       .catch(res => {
+        console.log('无相机权限')
         _this.setData({
           has_camera_authorize: false
         })
@@ -218,6 +220,53 @@ Page({
       .catch(res => {
         // showModal('提示', '请点击右上角【···】— 设置 — 打开定位')
         console.error(res)
+      })
+  },
+
+  request_device_callback: function (bag_id) {
+    console.log('上传', bag_id)
+    let _this = this
+    wx.showLoading({
+      title: '请稍候',
+    })
+    let api = 'device_callback'
+    let data = {
+      vloop_bag_id: _this.data.bag_barcode,
+      logistics_barcode: _this.data.logistics_barcode,
+    }
+    mini_request(api, data)()
+      .then(res => {
+        wx.hideLoading()
+        if (res.data.result != "SUCCESS") {
+          console.warn(api, res.data)
+          let desc = res.data.description
+          if (!desc) {
+            desc = res.data.reason
+          }
+          showModal('服务通知', desc)
+          if (res.data.reason == "BAG_ID_INVALID") {
+
+          } else if (res.data.reason == "LOGISTICS_NOT_FOUND") {
+
+          } else if (res.data.reason == "RECORD_SAVE_FAIL") {
+
+          }
+          return next_promise()
+        }
+        console.log(api, res.data)
+        // TODO
+        showModal('服务通知', '操作成功')
+      })
+      .catch(res => {
+        wx.hideLoading()
+        console.error(api, res)
+        _this.data.fail_upload_bag_id.push(bag_id)
+        // showModal('服务通知', '上传失败，请检查网络连接和服务器状态。')
+        showModal('服务通知', '服务器异常，请稍后再试')
+        // TODO
+      })
+      .finally(res => {
+        // TODO
       })
   },
 })
